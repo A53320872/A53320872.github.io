@@ -8,16 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Q1 Two Sum | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="###Original thought:Use loop for two times:      First time, fix a particular number(num1), and then fix the next, until the end.     Second time, when fixed a particular number(num1), check through">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Q1 Two Sum">
 <meta property="og:url" content="http://yoursite.com/2019/08/05/Q1-Two-Sum/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="###Original thought:Use loop for two times:      First time, fix a particular number(num1), and then fix the next, until the end.     Second time, when fixed a particular number(num1), check through">
 <meta property="og:locale" content="English">
-<meta property="og:image" content="http://yoursite.com/2019/08/05/Q1-Two-Sum/q1_1.png">
-<meta property="og:updated_time" content="2019-08-05T09:47:18.706Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19085165-dc20b500619b726d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19085165-fe97eae481fd8026.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19085165-204526ebcc48e3b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19085165-7de5cff1740ac4fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-05T13:48:47.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Q1 Two Sum">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/05/Q1-Two-Sum/q1_1.png">
+<meta name="twitter:description" content="###Original thought:Use loop for two times:      First time, fix a particular number(num1), and then fix the next, until the end.     Second time, when fixed a particular number(num1), check through">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/19085165-dc20b500619b726d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -173,7 +179,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="q1_1.png" alt></p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/19085165-dc20b500619b726d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>###Original thought:<br>Use loop for two times:     </p>
+<p>First time, fix a particular number(num1), and then fix the next, until the end.    </p>
+<p>Second time, when fixed a particular number(num1), check through the whole list(nums) to find a match number(num2), which meets the condition: num1 + num2 == target.    </p>
+<p><em>Notice</em>: If the input list is like: [3,3], then we should make a “if” condition satatement to avoid the incorrect output.   </p>
+<p>###Method1 code: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(nums, target)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> num1 <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            flag1 = num1</span><br><span class="line">            <span class="keyword">for</span> num2 <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">                flag2 = num2</span><br><span class="line">                <span class="keyword">if</span> nums[num1] + nums[num2] == target <span class="keyword">and</span> flag1 != flag2:</span><br><span class="line">                    <span class="keyword">return</span> [num1, num2]</span><br></pre></td></tr></table></figure>
+
+<p><em>*To notice that here, I use “flag” to sign the index of num1 or num2, in fact, they are equal to flag1 and flag2, just a sign for better understanding.</em></p>
+<p>###Original Outcome:<br><img src="https://upload-images.jianshu.io/upload_images/19085165-fe97eae481fd8026.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>Analysis: It is clear to see that both two inputs(regular and irregular) had the correct outcomes.<br>However, when submit in the leedcode website, the outcome is as follows:<br><img src="https://upload-images.jianshu.io/upload_images/19085165-204526ebcc48e3b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>We can see a “Time Limit Exceeded” Error, which always because of a high Time-Complexity.<br>So we should move on for finding a lower Time-Compexity algorithms.     </p>
+<p>And here comes the “Dictionaries” data type:    </p>
+<p>Firstly, it is necessary to know the difference between two data types:     </p>
+<ol>
+<li><p>List is restored in order. Which means that if the question cares about the order of the array, then mostly we will consider lists. Because lists can be easily matipulated(like funtion – sort). But,the dictionary is stored randamly.  </p>
+</li>
+<li><p>List can be accessed by “index”, and dictinary can be accessed by “key”.  </p>
+</li>
+<li><p>When checking through the list, the time-complexity is linear, but in dictionary, it is constant. Which means when people have to look through something, a dictionary is the better one. (This is because the store way in dictionaries is “Hash”, whose Time-Complesity is roughly equal to 1). </p>
+</li>
+</ol>
+<p>According to this, we change the second loop from checking a list to cheking a dictionary.      </p>
+<p><em>Here is a tip: when we look through a list, we can use function “enumerate” to count the loop times at the same time.</em></p>
+<p>###Promoted Code:   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def twoSum(nums, target):</span><br><span class="line">        dict = &#123;&#125;</span><br><span class="line">        for i, element in enumerate(nums):</span><br><span class="line">            if target - element in dict:</span><br><span class="line">                return [dict[target - element], i]</span><br><span class="line">            else:</span><br><span class="line">                dict[element] = i</span><br></pre></td></tr></table></figure>
+
+<p>*Notice: statement “if xxx in xxx” is actually a search procedure, which is very helpful in checking through a whole list or dictionary, especially when we don’t care about the order of the data. *</p>
+<p>And this promoted code run successfully.    </p>
+<p>look at the 3rd line, I create a empty dictionary named “dict”, and this program has a n*1 Time-Complexity, but why we can’t use list here? Why not just create a new list like this “dict” to store the number’s index, and compare the index as the similar way as dictionary does?   </p>
+<p>Well, here is the answer: </p>
+<ol>
+<li>It is apparently that dictionary has a lower Time-Complexity than list.  </li>
+<li>What’s more importantly, we can easily create an empty dictionary, but we can not create an empty list casually, although it can be created with no error.<br>Because there always be some “out of index” errors if we compile or run this.<br>just like this:<br><img src="https://upload-images.jianshu.io/upload_images/19085165-7de5cff1740ac4fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt>    </li>
+</ol>
+<p>###Summary  </p>
+<ol>
+<li>List has a higher Time-Complexity than dictionary when it has to be looked through.</li>
+<li>It is more convenient to create an empty dictionary than an empty list.</li>
+<li>When questions about the order of the data, then list is often better.</li>
+</ol>
 
       
 
