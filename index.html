@@ -204,11 +204,13 @@
 <ol>
 <li>It is apparently that dictionary has a lower Time-Complexity than list.  </li>
 <li>What’s more importantly, we can easily create an empty dictionary, but we can not create an empty list casually, although it can be created with no error.<br>Because there always be some “out of index” errors if we compile or run this.<br>just like this:<br><img src="https://upload-images.jianshu.io/upload_images/19085165-7de5cff1740ac4fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt>    </li>
+<li>When we use an empty list, it is uneasy to change the data. We must use “insert()” function, but in dictionary it can be assigned directly.</li>
+<li>But the answer is yes. Of course we can use an empty list here, although is no the best choice.    </li>
 </ol>
 <p>###Summary  </p>
 <ol>
 <li>List has a higher Time-Complexity than dictionary when it has to be looked through.</li>
-<li>It is more convenient to create an empty dictionary than an empty list.</li>
+<li>It is more convenient to create an empty dictionary than an empty list(especially when you want to assign the data).</li>
 <li>When questions about the order of the data, then list is often better.</li>
 </ol>
 
