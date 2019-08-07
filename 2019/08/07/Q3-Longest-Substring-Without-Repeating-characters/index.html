@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/8 | Hexo</title>
+  <title>Q3 Longest Substring Without Repeating characters | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/08/index.html">
+  <meta name="description" content="Regular Method Scan the string, when find a character already exist, then we start to scan from the character that after the former-exist character.    When we scan the string, each character should">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Q3 Longest Substring Without Repeating characters">
+<meta property="og:url" content="http://yoursite.com/2019/08/07/Q3-Longest-Substring-Without-Repeating-characters/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Regular Method Scan the string, when find a character already exist, then we start to scan from the character that after the former-exist character.    When we scan the string, each character should">
 <meta property="og:locale" content="English">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19085165-ca1d54699247607b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-07T15:27:41.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Q3 Longest Substring Without Repeating characters">
+<meta name="twitter:description" content="Regular Method Scan the string, when find a character already exist, then we start to scan from the character that after the former-exist character.    When we scan the string, each character should">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/19085165-ca1d54699247607b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,130 +156,174 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Q3-Longest-Substring-Without-Repeating-characters" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Q3 Longest Substring Without Repeating characters
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/07/Q3-Longest-Substring-Without-Repeating-characters/" class="archive-article-date">
+
+        
+        <a href="/2019/08/07/Q3-Longest-Substring-Without-Repeating-characters/" class="archive-article-date">
   	<time datetime="2019-08-07T15:27:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/07/Q3-Longest-Substring-Without-Repeating-characters/">Q3 Longest Substring Without Repeating characters</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/19085165-ca1d54699247607b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<h3 id="Regular-Method"><a href="#Regular-Method" class="headerlink" title="Regular Method"></a>Regular Method</h3><ol>
+<li>Scan the string, when find a character already exist, then we start to scan from the character that after the former-exist character.   </li>
+<li>When we scan the string, each character should be stored in to a list and a dictionary. List can help us know the position of the character, and dictionary help us to see if a character alredy exist (Because “if XXX in XXX” statement in dictionary is Hash speed, faster than in list).</li>
+<li>Then, we delete every character which before the exist-character, and will scan from the next character. Here is an example:<br> string = “qwknwej”  –&gt;  scan from q<br> because “w” existed, then we scan from k (next character of former-“w”)</li>
+<li>Finally, every time before we delete a string, we mark the length, in order to get the max length later.<br>Here is the code:   </li>
+</ol>
+<h3 id="Regular-Solution"><a href="#Regular-Solution" class="headerlink" title="Regular Solution"></a>Regular Solution</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(s)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> s == <span class="string">""</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            dict = &#123;&#125;</span><br><span class="line">            count_list = []</span><br><span class="line">            i = <span class="number">0</span></span><br><span class="line">            j = <span class="number">0</span></span><br><span class="line">            t = <span class="number">0</span></span><br><span class="line">            temp_list = []</span><br><span class="line">            <span class="comment">#temp_list_another = []</span></span><br><span class="line">            <span class="keyword">while</span> i &lt; len(s):</span><br><span class="line">                <span class="keyword">if</span> s[i] <span class="keyword">not</span> <span class="keyword">in</span> dict:</span><br><span class="line">                    dict[s[i]] = <span class="number">1</span></span><br><span class="line">                    temp_list.insert(t, s[i])</span><br><span class="line">                    t += <span class="number">1</span></span><br><span class="line">                    <span class="comment">#print(temp_list)</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    sign_index = temp_list.index(s[i])</span><br><span class="line">                    m = <span class="number">0</span></span><br><span class="line">                    <span class="comment">#print(sign_index)</span></span><br><span class="line">                    <span class="keyword">while</span> m &lt;= sign_index:</span><br><span class="line">                        <span class="keyword">del</span> dict[temp_list[m]]</span><br><span class="line">                        m += <span class="number">1</span></span><br><span class="line">                    dict[s[i]] = <span class="number">1</span></span><br><span class="line">                    <span class="comment">#print(dict)</span></span><br><span class="line">                    l = <span class="number">0</span></span><br><span class="line">                    sign = sign_index + <span class="number">1</span></span><br><span class="line">                    temp_list_another = []</span><br><span class="line">                    <span class="keyword">while</span> sign &lt; len(temp_list):</span><br><span class="line">                        temp_list_another.insert(l, temp_list[sign])</span><br><span class="line">                        <span class="comment">#print(sign_index, sign, i, temp_list_another)</span></span><br><span class="line">                        l += <span class="number">1</span></span><br><span class="line">                        sign += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                    temp_list_another.append(s[i])</span><br><span class="line">                    temp_list = temp_list_another</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    <span class="comment">#print(temp_list)</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                <span class="comment">#print(dict, "$$$$$$$$$$$$$$$$$", temp_list)</span></span><br><span class="line">                count_list.insert(i, len(temp_list))</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            count_list.sort(reverse = <span class="literal">True</span>)</span><br><span class="line">            max_number = count_list[<span class="number">0</span>]</span><br><span class="line">            <span class="comment">#print(count_list,max_number)</span></span><br><span class="line">            <span class="keyword">return</span> max_number</span><br><span class="line"></span><br><span class="line"><span class="comment">#print(Solution.lengthOfLongestSubstring("pwwkew"))</span></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h3><p>It can be work well,  but the running time is 700+ ms. </p>
+<h3 id="Alternative-Method"><a href="#Alternative-Method" class="headerlink" title="Alternative Method"></a>Alternative Method</h3><p>For this question, we needn’t to store every character to a list. We can sacn them and store them into a dictionary, and when we find a same character, just delete it from the dictionary.<br>But what about the order? The order is very important here, because when we delete characters one by one, we should know where to stop.<br>Here is a solution to this situation:<br>When we delete an element in a dictionary, we don’t know the position of the element, <strong>However, when we use “dict[element] = number” statement to insert a new element into a dictionary, its position is always at the end (although dictionaries randomly store their items), so this can be used to solve the “order” problem.</strong>  </p>
+<p>Here is the code:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(s)</span>:</span></span><br><span class="line">        dict = &#123;&#125;</span><br><span class="line">        j = count_dict = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> s != <span class="string">""</span>:</span><br><span class="line">            <span class="keyword">for</span> element_index, element <span class="keyword">in</span> enumerate(s):</span><br><span class="line">                <span class="keyword">if</span> element <span class="keyword">not</span> <span class="keyword">in</span> dict:</span><br><span class="line">                    dict[element] = element_index</span><br><span class="line">                    max_length = max(len(dict), count_dict)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    count_dict = len(dict)</span><br><span class="line">                    l = <span class="number">0</span></span><br><span class="line">                    print(<span class="string">"~~~~"</span>, element_index, element, dict[element], j)</span><br><span class="line">                    sign = dict[element]</span><br><span class="line">                    <span class="keyword">while</span> l &lt; sign - j:</span><br><span class="line">                        <span class="keyword">del</span> dict[s[j]]</span><br><span class="line">                        j += <span class="number">1</span></span><br><span class="line">                        l += <span class="number">1</span></span><br><span class="line">                    print(j)</span><br><span class="line">                    <span class="keyword">if</span> len(dict) != <span class="number">1</span>:</span><br><span class="line">                        <span class="keyword">del</span> dict[element]</span><br><span class="line">                        dict[element] = element_index</span><br><span class="line">                        j += <span class="number">1</span></span><br><span class="line">                        dict[element] += <span class="number">1</span></span><br><span class="line">                        print(j)</span><br><span class="line">                print(element_index, element, dict, max_length)</span><br><span class="line">            <span class="keyword">return</span> max_length</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">print(Solution.lengthOfLongestSubstring(<span class="string">"abbbcc"</span>))</span><br></pre></td></tr></table></figure>
 
+<h3 id="Analysis-1"><a href="#Analysis-1" class="headerlink" title="Analysis:"></a>Analysis:</h3><p>The running time is 64ms(last running time is 700+ ms).</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary:"></a>Summary:</h3><ol>
+<li>It is still very important to know that dictionary has a lower time in seraching. But list has an easy way to process order problems.</li>
+<li>An good knowledge is that when we insert (or add) a new element into a dictionary, it always be put into the end of the dictionary (although a dictionary store data randomly). Some times this can substitude a list’s work.</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/07/Q3-Longest-Substring-Without-Repeating-characters/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/07/Q2-Add-Two-Numbers/" class="archive-article-date">
-  	<time datetime="2019-08-06T16:48:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/07/Q2-Add-Two-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Q2 Add Two Numbers</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/07/Q2-Add-Two-Numbers/">Q2 Add Two Numbers</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/05/Q1-Two-Sum/" class="archive-article-date">
-  	<time datetime="2019-08-05T09:07:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/05/Q1-Two-Sum/">Q1 Two Sum</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/05/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-05T02:35:46.397Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/05/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -296,8 +346,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
